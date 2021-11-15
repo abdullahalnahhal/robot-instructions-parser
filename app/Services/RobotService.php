@@ -28,7 +28,7 @@ class RobotService
      *
      * @return string
      */
-    private function f()
+    private function f():string
     {
         return "forward";
     }
@@ -38,7 +38,7 @@ class RobotService
      *
      * @return string
      */
-    private function b()
+    private function b():string
     {
         return "backward";
     }
@@ -48,7 +48,7 @@ class RobotService
      *
      * @return string
      */
-    private function l()
+    private function l():string
     {
         return "left";
     }
@@ -58,7 +58,7 @@ class RobotService
      *
      * @return string
      */
-    private function r()
+    private function r():string
     {
         return "right";
     }

@@ -25,7 +25,13 @@ class RobotController extends Controller
         $this->service = $service;
     }
 
-    private function parseFile(RobotTemplate $robot)
+    /**
+     * [parseFile function parsing the instructions into files ]
+     *
+     * @param RobotTemplate $robot
+     * @return void
+     */
+    private function parseFile(RobotTemplate $robot):void
     {
         $text = "Final Position : \n ------ \n";
         $text .= "X = ".$robot->position['x'].", Y = ".$robot->position['y']."\n ------ \n";
@@ -43,7 +49,7 @@ class RobotController extends Controller
     }
 
     /**
-     * [parse parsing the instructions]
+     * [parse function parsing the instructions]
      *
      * @param Request $request
      * @return void

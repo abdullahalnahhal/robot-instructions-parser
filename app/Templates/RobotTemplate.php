@@ -197,7 +197,7 @@ class RobotTemplate
         if ($fun_name == 'history'){
             return $this->getPositionHistory();
         }
-        dd($fun_name);
+
         throw new Exception("These Method Doesn't Exists ... !");
     }
 }
