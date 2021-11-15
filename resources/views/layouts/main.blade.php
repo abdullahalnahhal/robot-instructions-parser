@@ -12,7 +12,18 @@
     <div class="container-fluid page-body-wrapper">
       <div class="main-panel">
         <div class="content-wrapper">
-          @yield('content')
+            @yield('content')
+
+            @if($errors->any())
+                @foreach ( $errors->all() as $error)
+                <div class="alert alert-danger mt-5" role="alert">
+                    <div class='row'>
+                        {{ __($error) }}
+                    </div>
+                </div>
+                @endforeach
+            @endif
+
         </div>
         <!-- content-wrapper ends -->
       </div>
