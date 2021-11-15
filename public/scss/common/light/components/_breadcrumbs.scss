@@ -1,0 +1,67 @@
+/* Breadcrumbs */
+
+.breadcrumb {
+  border: $border-width solid $border-color;
+
+  .breadcrumb-item {
+    font-size: $breadcrumb-font-size;
+  }
+
+  &.breadcrumb-custom {
+    padding: $breadcrumb-custom-padding-y $breadcrumb-custom-padding-x;
+    border-color: $breadcrumb-item-bg;
+    .breadcrumb-item {
+      font-size: $breadcrumb-font-size;
+      background: $breadcrumb-item-bg;
+      padding: $breadcrumb-custom-item-padding-y $breadcrumb-custom-item-padding-x;
+      color: $breadcrumb-custom-item-color;
+      display: inline-block;
+      vertical-align: top;
+      a {
+        position: relative;
+        color: inherit;
+        border: 1px solid $breadcrumb-item-bg;
+        display: inline-block;
+        vertical-align: top;
+        
+      }
+      span {
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      + .breadcrumb-item {
+        &:before {
+          content: ">";
+        }
+      }
+    }
+  }
+
+  &.bg-success,
+  &.bg-dark,
+  &.bg-danger,
+  &.bg-warning,
+  &.bg-primary,
+  &.bg-info {
+    border: none;
+    .breadcrumb-item{
+      color: $white;
+      &:before{
+        color: inherit;
+      }
+      a,
+      span{
+        color: inherit;
+      }
+    }
+  }
+}
+
+
+/* inverse breadcrumb */
+@each $color, $value in $theme-colors {
+  .bg-inverse-#{$color} {
+    @include breadcrumb-inverse-variant($value);
+  }
+}
