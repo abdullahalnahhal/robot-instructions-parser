@@ -33,8 +33,10 @@ class RobotController extends Controller
     public function parse(RobotParseRequest $request)
     {
         $instructions = strtolower($request->instructions);
-        $parse = $this->service->parse($instructions);
-
-        dd($parse);
+        $robot = $this->service->parse($instructions);
+        return view('welcome', [
+            'robot' => $robot,
+            'instructions' => $request->instructions
+        ]);
     }
 }

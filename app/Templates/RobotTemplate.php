@@ -43,6 +43,16 @@ class RobotTemplate
     private $position_history = [];
 
     /**
+     * [setHistory function inserts current location into position_history array]
+     *
+     * @return void
+     */
+    private function setHistory():void
+    {
+        $this->position_history[] = ['x' => $this->position_x, 'y' => $this->position_y];
+    }
+
+    /**
      * [forward function increase the Y axis by one]
      *
      * @return void
@@ -52,7 +62,7 @@ class RobotTemplate
         $this->position_y = $this->position_y + 1;
         $this->literal_instructions[] = 'forward';
         $this->characteristic_instructions[] = 'f';
-        $this->position_history[] = [$this->position_x, $this->position_y];
+        $this->setHistory();
     }
 
     /**
@@ -65,7 +75,7 @@ class RobotTemplate
         $this->position_y = $this->position_y - 1;
         $this->literal_instructions[] = 'backward';
         $this->characteristic_instructions[] = 'b';
-        $this->position_history[] = [$this->position_x, $this->position_y];
+        $this->setHistory();
     }
 
     /**
@@ -78,7 +88,7 @@ class RobotTemplate
         $this->position_x = $this->position_x + 1;
         $this->literal_instructions[] = 'right';
         $this->characteristic_instructions[] = 'r';
-        $this->position_history[] = [$this->position_x, $this->position_y];
+        $this->setHistory();
     }
 
     /**
@@ -91,7 +101,7 @@ class RobotTemplate
         $this->position_x = $this->position_x - 1;
         $this->literal_instructions[] = 'left';
         $this->characteristic_instructions[] = 'l';
-        $this->position_history[] = [$this->position_x, $this->position_y];
+        $this->setHistory();
     }
 
     /**
@@ -121,7 +131,7 @@ class RobotTemplate
      */
     public function getCharacteristicInstructions():array
     {
-        return $this->literal_instructions;
+        return $this->characteristic_instructions;
     }
 
     /**
@@ -187,7 +197,7 @@ class RobotTemplate
         if ($fun_name == 'history'){
             return $this->getPositionHistory();
         }
-
+        dd($fun_name);
         throw new Exception("These Method Doesn't Exists ... !");
     }
 }

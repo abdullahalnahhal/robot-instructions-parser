@@ -60,7 +60,7 @@ class RobotService
      */
     private function r()
     {
-        return "reft";
+        return "right";
     }
 
 
@@ -70,7 +70,7 @@ class RobotService
      * @param string $instructions
      * @return void
      */
-    public function parse(string $instructions)
+    public function parse(string $instructions):RobotTemplate
     {
         $instructions = str_split($instructions);
 
